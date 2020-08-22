@@ -1,0 +1,162 @@
+.App {
+  text-align: center;  
+  display: flex;
+}
+
+body {
+  background-color: #282c34;
+  align-items: center;
+  /*font-family: Garamond;*/
+  font-size: 20px;
+  color: white;
+  margin-top: 5px;
+}
+
+input, textarea, select, button {
+  font: inherit;
+}
+
+/*Макет из 2х колонок*/
+.left{
+  flex:1;
+  border: solid 1px black;
+  padding: 10px;
+  margin: 5px;
+  max-width: 25%;
+}
+.right{
+  margin: 5px;
+  flex:3;
+  border: solid 1px black;
+  padding: 10px;
+}
+/*Кнопка*/
+.simple-button{
+  margin:5px;
+  color:white;
+  border-image: initial;
+  border:solid 1px black;
+  box-shadow: 2px 4px 4px rgba(0,0,0,1);
+  background-color:#604A90FF;
+  padding: 5px;
+  min-width: 120px;
+  min-height: 30px;
+  transition-duration: .3s;
+}
+.simple-button:active{
+  box-shadow: 0 1px 2px rgba(0,0,0,1); 
+
+}
+.simple-button:hover{
+  color: black;
+  background-color: white;
+  transition-duration: .5s;
+}
+/*Базовые контейнеры*/
+.container-column {
+
+  /*border: solid 1px black;*/
+  display: flex;
+  flex-direction:  column;
+  padding: 5px;
+  margin: 5px; 
+}
+.container-row{
+  /*border: solid 1px black;*/
+  display: flex;
+  flex-direction:  row;
+  padding: 5px;
+  justify-content: center; 
+  margin: 5px;
+}
+.container-row p{
+  margin:5px;
+  font-size: 1rem;
+}
+/*Поиск*/
+.search{
+  margin: 5px;
+  padding: 5px;  
+  border:solid 1px black;
+}
+/*Выпадающее меню сортировки*/
+.menu{
+  background-color: #604A90FF;
+  color: white;
+  border: none;
+  -webkit-apperance:none;
+  appearance:none;
+}
+/*Note-item*/
+.note-item{
+
+  transition:all .3s;
+  position: relative;
+  min-height: 80px;
+  max-width: 330px;
+  overflow:hidden;
+  margin-left: 5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  background-color: #604A90FF;
+  height: 80px;
+  align-items: stretch;
+  border:solid 2px black;  
+  padding-bottom: 10px;
+  padding-right: 5px;
+}
+.note-item:hover{
+ color:black;
+ background-color: white;
+}
+.heading{
+  margin-left: 15px;
+  text-align: left;
+  /*font-size: 16px;*/
+   overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+  min-height: 30px;
+  margin-bottom: 10px;
+}
+.text-preview{  
+  min-height:25px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 15px;
+  margin-top: 0px;
+  text-align: justify;
+  font-size: 16px;
+}
+/*Hide-button*/
+
+.hide-button{
+  width:27px;
+  height: 27px;
+  position: absolute;
+  border: none;
+  top:0;
+  right:0;
+  margin:5px;
+  padding-left: 0;
+  padding-right: 0;
+  border-image: initial;
+  background-color:black;
+  color:white;
+  visibility: hidden;
+}
+.note-item:hover .hide-button{
+  visibility: visible;
+}
+
+/*Note-content - содержимое заметки*/
+.note-content{
+  resize: none;
+  padding: 10px;
+  border: solid black 2px;
+  background-color: #282c34;
+  color: white;
+  margin: 5px;
+  min-height: 550px;
+}
