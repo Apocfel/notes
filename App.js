@@ -80,7 +80,7 @@ class NoteManager extends React.Component{
   
   //Добавление новых заметок в array 
   noteAdding (note) {
-    if (note.id == -1){
+    if (note.id === -1){
       alert("Было создано слишком много заметок");
       return;
     }
@@ -96,7 +96,7 @@ class NoteManager extends React.Component{
   }
   //Изменение текста заметки
   noteChanged(text){
-    if(this.state.currentNoteId == -1)
+    if(this.state.currentNoteId === -1)
       return;
     let arr = this.state.array;
     arr.get(this.state.currentNoteId).content = text;
@@ -113,7 +113,7 @@ class NoteManager extends React.Component{
   }
   //Удаление заметки
   noteDelete(id){
-    if (!this.state.array.has(id) || this.state.currentNoteId == -1)
+    if (!this.state.array.has(id) || this.state.currentNoteId === -1)
       return;
     let newArr = this.state.array;
     newArr.delete(id);
@@ -121,7 +121,7 @@ class NoteManager extends React.Component{
       array: newArr 
     });
     //Если удалили текущую заметку, то снимаем фокус 
-    if(this.state.currentNoteId == id){
+    if(this.state.currentNoteId === id){
       this.setState({
         currentNoteId: -1 
       });
@@ -180,7 +180,6 @@ class NoteManager extends React.Component{
   );
   }
 }
-
 function ControlContainer(props){
   return (
     <div className = "container-column">      
@@ -259,8 +258,8 @@ class NoteRedaction extends React.Component{
         <TextArea
         maxLength = {500}
         readOnly = {this.state.readOnly}
-        value = {this.props.currentNote == undefined ? "" : this.props.currentNote.content} 
-        placeholder = {this.props.currentNoteId == -1? "Выберите заметку слева." : "Введите текст заметки..."}
+        value = {this.props.currentNote === undefined ? "" : this.props.currentNote.content} 
+        placeholder = {this.props.currentNoteId === -1? "Выберите заметку слева." : "Введите текст заметки..."}
         className = "note-content"
         handleInput = {
           (evt) => this.props.handleInput(evt.target.value)
@@ -278,7 +277,7 @@ function sortByConfig(noteArr,config){
 
   let newArr = [];
   //Пригодность по config.prefix
-  if(config.prefix.trim() == '')
+  if(config.prefix.trim() === '')
     newArr = noteArr;
   else
     for(let entry of noteArr){    
@@ -291,10 +290,10 @@ function sortByConfig(noteArr,config){
     }
   
   //сортировка в зависимости от config.sort
-  if(config.sort == "default" || config.sort == "ascend")
+  if(config.sort === "default" || config.sort === "ascend")
     newArr.sort((first,second) => 
      first[1].createTime - second[1].createTime)
-  if(config.sort == "descend")
+  if(config.sort === "descend")
     newArr.sort((first,second) => 
      second[1].createTime - first[1].createTime)
   return newArr;
